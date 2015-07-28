@@ -5,7 +5,10 @@ angular.module('workspaceApp')
 
     // Use the User $resource to fetch all users
     $scope.users = User.query();
-
+    $scope.getCurrentUser = Auth.getCurrentUser;
+    $scope.isLoggedIn = Auth.isLoggedIn;
+    $scope.isLoggedInAsync = Auth.isLoggedInAsync;
+    
     $scope.delete = function(user) {
       User.remove({ id: user._id });
       angular.forEach($scope.users, function(u, i) {

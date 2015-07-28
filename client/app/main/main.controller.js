@@ -2,26 +2,30 @@
 
 angular.module('workspaceApp')
   .controller('MainCtrl', function ($scope, $http, socket) {
-    $scope.awesomeThings = [];
+    $scope.allPolls = [];
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
+    $http.get('/api/polls').success(function(allPolls) {
+      $scope.allPolls = allPolls;
+      socket.syncUpdates('polls', $scope.allPolls);
     });
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
+    $scope.addPoll = function() {
+      if($scope.newPoll === '') {
         return;
       }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
+      $http.post('/api/polls', { name: $scope.newPoll, options:[{option:$scope.newPollOption0},{option:$scope.newPollOption1}] });
+      $scope.newPoll = '';
+      $scope.newPollOption0='';
+      $scope.newPollOption1='';
     };
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+    $scope.deletePoll = function(polls) {
+      $http.delete('/api/polls/' + polls._id);
     };
 
     $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
+      socket.unsyncUpdates('polls');
     });
+    
+    //console.log($scope.user.name);
   });

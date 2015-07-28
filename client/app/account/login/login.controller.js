@@ -4,7 +4,7 @@ angular.module('workspaceApp')
   .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
     $scope.user = {};
     $scope.errors = {};
-
+    $scope.userName='';
     $scope.login = function(form) {
       $scope.submitted = true;
 
