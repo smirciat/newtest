@@ -38,13 +38,15 @@ module.exports = function (socketio) {
   //   handshake: true
   // }));
 
+  
   socketio.on('connection', function (socket) {
     socket.address = socket.handshake.address !== null ?
             socket.handshake.address.address + ':' + socket.handshake.address.port :
             process.env.DOMAIN;
-
+            
+    
     socket.connectedAt = new Date();
-
+    
     // Call onDisconnect.
     socket.on('disconnect', function () {
       onDisconnect(socket);
@@ -54,5 +56,6 @@ module.exports = function (socketio) {
     // Call onConnect.
     onConnect(socket);
     console.info('[%s] CONNECTED', socket.address);
+    
   });
 };

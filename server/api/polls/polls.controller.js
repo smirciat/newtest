@@ -5,6 +5,8 @@ var Polls = require('./polls.model');
 
 // Get list of pollss
 exports.index = function(req, res) {
+  var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
+  console.log("client IP address is: " + ip);
   Polls.find(function (err, polls) {
     if(err) { return handleError(res, err); }
     return res.status(200).json(polls);
