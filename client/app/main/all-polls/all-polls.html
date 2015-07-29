@@ -1,0 +1,17 @@
+<div class="col-md-12">
+   <div class="container">
+       <div class="row">
+            <div class="col-lg-12">
+              <h1 class="page-header">Available Polls:</h1>
+              <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="poll in allPolls">
+                <li>
+                  <a href="#" ng-click="showOnePoll(poll) ">
+                    {{poll.name + " " + poll.options[0].option + " " + poll.ownerId + " " + poll.results[0].count}}
+                    <button type="button" class="close" ng-click="deletePoll(poll)">&times;</button>
+                  </a>
+                </li>
+              </ul>
+            </div>
+       </div>
+   </div>
+</div>
