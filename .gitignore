@@ -7,4 +7,3 @@ dist
 /server/config/local.env.js
 npm-debug.log
 data
-/server/config/environment/test.js
