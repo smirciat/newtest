@@ -21,8 +21,6 @@ angular.module('workspaceApp')
       .when('/all-polls', {
         templateUrl: 'app/main/all-polls/all-polls.html',
         controller: 'AllPollsCtrl'
-    })
-    
-      ;
+      });
   });
 
