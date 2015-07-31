@@ -5,8 +5,6 @@ var Polls = require('./polls.model');
 
 // Get list of pollss
 exports.index = function(req, res) {
-  var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
-  console.log("client IP address is: " + ip);
   Polls.find(function (err, polls) {
     if(err) { return handleError(res, err); }
     return res.status(200).json(polls);
@@ -22,6 +20,11 @@ exports.show = function(req, res) {
   });
 };
 
+exports.ip = function(req, res) {
+    var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
+    return res.json(ip);
+};
+
 // Creates a new polls in the DB.
 exports.create = function(req, res) {
   Polls.create(req.body, function(err, polls) {
@@ -32,6 +35,7 @@ exports.create = function(req, res) {
 
 // Updates an existing polls in the DB.
 exports.update = function(req, res) {
+  
   if(req.body._id) { delete req.body._id; }
   Polls.findById(req.params.id, function (err, polls) {
     if (err) { return handleError(res, err); }

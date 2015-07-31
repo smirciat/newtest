@@ -8,7 +8,9 @@
              
          
           <label >
-            <input type="radio" ng-model="$parent.chosenOption" ng-value="opt._id"  name="{{opt.option}}">
+            <input type="radio" ng-model="$parent.chosenOption" 
+                ng-value="opt.index" ng-click="$parent.recordVote(opt.index)" 
+                name="{{opt.option}}">
                 {{opt.option}}
           </label><br/>
         </div>
