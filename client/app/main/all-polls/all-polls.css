@@ -1,0 +1,11 @@
+.box {
+ margin: auto;
+ width: 300px;
+ text-align:center;
+}
+canvas{
+ border:1px solid;
+}
+.outer{
+ text-align:center;
+}

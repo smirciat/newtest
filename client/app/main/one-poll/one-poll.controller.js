@@ -16,6 +16,7 @@ angular.module('workspaceApp')
     
     $scope.recordVote=function(optionIndex){
       //check if this IP has already voted
+      //$scope.clientIP='0.0.0.0';
       for (var i=0;i<$scope.ips.length;i++){
         if ($scope.ips[i].IP==$scope.clientIP) {
           alert('This poll has already received a vote from this IP Address.  Here are the results of this poll:');
