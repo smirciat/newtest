@@ -6,5 +6,9 @@ angular.module('workspaceApp')
       .when('/one-poll', {
         templateUrl: 'app/main/one-poll/one-poll.html',
         controller: 'OnePollCtrl'
+      })
+      .when('/one-poll/:id', {
+        templateUrl: 'app/main/one-poll/one-poll.html',
+        controller: 'OnePollCtrl'
       });
   });

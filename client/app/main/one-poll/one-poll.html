@@ -1,8 +1,8 @@
 <div class="container">
   <div class="center">
-     <h1>{{name}}</h1>
+     <h1>{{poll.name}}</h1>
   </div>
-  <form ng-repeat="opt in options" >
+  <form ng-repeat="opt in poll.options" >
      <div class="input-group">
          <div class="input-group-addon">
              
@@ -16,5 +16,15 @@
         </div>
      </div>  
   </form>
-  <h5>{{chosenOption}}</h5>
+  <div ng-show="isShowNewOption">
+      <input type="text" class="form-control" placeholder="Type Poll Option Here" ng-model="newOption">
+      <button type="submit" class="btn btn-primary" ng-click="updateOptions()">Add Another Option</button>
+  </div>
+  <div class="center" ng-show="isOwned">
+      <button type="submit" class="btn btn-warning" ng-click="toggleOption()">Add Another Option</button>
+  </div>
+  <br/>
+  <div class="center">
+     <h4>Invite someone to this poll by sending them this link: {{url}}</h4>
+  </div>
 </div>
