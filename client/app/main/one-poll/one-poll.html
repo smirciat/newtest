@@ -16,9 +16,9 @@
         </div>
      </div>  
   </form>
-  <div ng-show="isShowNewOption">
-      <input type="text" class="form-control" placeholder="Type Poll Option Here" ng-model="newOption">
-      <button type="submit" class="btn btn-primary" ng-click="updateOptions()">Add Another Option</button>
+  <div class="center" ng-show="isShowNewOption">
+      <input type="text" class="form-control center" placeholder="Type Poll Option Here" ng-model="newOption">
+      <button type="submit" class="btn btn-primary" ng-click="updateOptions()">Finalize New Option</button>
   </div>
   <div class="center" ng-show="isOwned">
       <button type="submit" class="btn btn-warning" ng-click="toggleOption()">Add Another Option</button>
